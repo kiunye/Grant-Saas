@@ -33,7 +33,7 @@ gem "paystack", "~> 0.1.10"
 gem "ruby-openai", "~> 7.0"
 
 # Document Export
-gem "docx", "~> 0.8.0"
+gem "docx", "~> 0.10.0"
 gem "wicked_pdf", "~> 2.8"
 gem "wkhtmltopdf-binary", "~> 0.12.6"
 
