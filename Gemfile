@@ -30,7 +30,7 @@ gem "omniauth-rails_csrf_protection", "~> 1.0"
 gem "paystack", "~> 0.1.10"
 
 # AI Integration
-gem "ruby-openai", "~> 7.0"
+gem "ruby-openai", "~> 8.3"
 
 # Document Export
 gem "docx", "~> 0.8.0"
