@@ -1,0 +1,101 @@
+<div class="max-w-3xl mx-auto px-4 py-8">
+  <!-- Progress Steps -->
+  <div class="mb-8">
+    <nav aria-label="Progress">
+      <ol class="flex items-center">
+        <li class="relative pr-8 sm:pr-20 flex-1">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="h-0.5 w-full bg-indigo-600"></div>
+          </div>
+          <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </li>
+        <li class="relative pr-8 sm:pr-20 flex-1">
+          <div class="absolute inset-0 flex items-center" aria-hidden="true">
+            <div class="h-0.5 w-full bg-indigo-600"></div>
+          </div>
+          <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </li>
+        <li class="relative flex-1">
+          <div class="relative flex h-8 w-8 items-center justify-center rounded-full bg-indigo-600">
+            <span class="text-white font-semibold text-sm">3</span>
+          </div>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Form Card -->
+  <div class="bg-white shadow rounded-lg p-6">
+    <h2 class="text-2xl font-bold text-gray-900 mb-2">Step 3: Activities & Outcomes</h2>
+    <p class="text-gray-600 mb-6">Detail your project activities and expected results</p>
+
+    <%= form_with url: generate_grants_path, method: :post, local: true, class: "space-y-6" do |f| %>
+      <div>
+        <%= label_tag 'grant[activities]', 'Project Activities *', class: 'block text-sm font-medium text-gray-700' %>
+        <%= text_area_tag 'grant[activities]', session.dig(:grant_form, :step3, :activities),
+            class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm',
+            rows: 5,
+            placeholder: 'Describe the key activities and how they will be implemented...',
+            required: true %>
+        <p class="mt-1 text-sm text-gray-500">List the main activities and methods</p>
+      </div>
+
+      <div>
+        <%= label_tag 'grant[timeline]', 'Project Timeline *', class: 'block text-sm font-medium text-gray-700' %>
+        <%= text_area_tag 'grant[timeline]', session.dig(:grant_form, :step3, :timeline),
+            class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm',
+            rows: 4,
+            placeholder: 'Outline the project timeline and milestones...',
+            required: true %>
+      </div>
+
+      <div>
+        <%= label_tag 'grant[budget_overview]', 'Budget Overview', class: 'block text-sm font-medium text-gray-700' %>
+        <%= text_area_tag 'grant[budget_overview]', session.dig(:grant_form, :step3, :budget_overview),
+            class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm',
+            rows: 3,
+            placeholder: 'Provide a high-level budget summary...' %>
+      </div>
+
+      <div>
+        <%= label_tag 'grant[sustainability_plan]', 'Sustainability Plan', class: 'block text-sm font-medium text-gray-700' %>
+        <%= text_area_tag 'grant[sustainability_plan]', session.dig(:grant_form, :step3, :sustainability_plan),
+            class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm',
+            rows: 3,
+            placeholder: 'How will the project continue after funding ends?' %>
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-400 p-4">
+        <div class="flex">
+          <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+          <div class="ml-3">
+            <p class="text-sm text-blue-700">
+              Our AI will use the information you've provided to generate a comprehensive, professional grant proposal.
+              This typically takes 30-60 seconds.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between space-x-3 pt-4">
+        <%= link_to "Back", step2_grants_path, class: "px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50" %>
+        <div class="flex space-x-3">
+          <%= link_to "Cancel", user_dashboard_path, class: "px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50" %>
+          <%= f.submit "Generate Grant Proposal", class: "px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500", data: { disable_with: "Generating..." } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

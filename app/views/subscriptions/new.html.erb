@@ -1,0 +1,78 @@
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="mb-8">
+    <h1 class="text-3xl font-bold text-gray-900">Choose Your Plan</h1>
+    <p class="mt-2 text-sm text-gray-600">Select the plan that best fits your needs</p>
+  </div>
+
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <% @plans.each do |plan| %>
+      <div class="border <%= plan.name == 'Growth' ? 'border-indigo-500 ring-2 ring-indigo-500' : 'border-gray-200' %> rounded-lg shadow-sm divide-y divide-gray-200 bg-white relative">
+        <% if plan.name == 'Growth' %>
+          <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+            <span class="inline-flex px-4 py-1 rounded-full text-sm font-semibold tracking-wide uppercase bg-indigo-600 text-white">
+              Popular
+            </span>
+          </div>
+        <% end %>
+
+        <div class="p-6">
+          <h2 class="text-lg leading-6 font-medium text-gray-900"><%= plan.name %></h2>
+          <p class="mt-4">
+            <span class="text-4xl font-extrabold text-gray-900">KES <%= plan.price.to_i %></span>
+            <span class="text-base font-medium text-gray-500">/mo</span>
+          </p>
+          <p class="mt-6 text-gray-500">
+            <%= plan.unlimited_generations? ? 'Unlimited' : plan.generations_per_month %>
+            <%= 'generation'.pluralize(plan.generations_per_month) %> per month
+          </p>
+
+          <% if plan.free_trial? %>
+            <%= link_to "Current Plan", "#", class: "mt-8 block w-full bg-gray-300 border border-transparent rounded-md py-2 text-sm font-semibold text-gray-600 text-center cursor-not-allowed" %>
+          <% elsif @current_plan && @current_plan.id == plan.id %>
+            <%= link_to "Current Plan", "#", class: "mt-8 block w-full bg-gray-300 border border-transparent rounded-md py-2 text-sm font-semibold text-gray-600 text-center cursor-not-allowed" %>
+          <% else %>
+            <%= form_with url: subscriptions_path, method: :post, local: true do |f| %>
+              <%= f.hidden_field :subscription_plan_id, value: plan.id %>
+              <%= f.submit "Select Plan", class: "mt-8 block w-full bg-indigo-600 border border-transparent rounded-md py-2 text-sm font-semibold text-white text-center hover:bg-indigo-700 cursor-pointer" %>
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="pt-6 pb-8 px-6">
+          <h3 class="text-xs font-medium text-gray-900 tracking-wide uppercase">What's included</h3>
+          <ul class="mt-6 space-y-4">
+            <li class="flex space-x-3">
+              <svg class="flex-shrink-0 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-sm text-gray-500">AI-powered generation</span>
+            </li>
+            <% if plan.allows_export? %>
+              <li class="flex space-x-3">
+                <svg class="flex-shrink-0 h-5 w-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-500">PDF & DOCX export</span>
+              </li>
+            <% else %>
+              <li class="flex space-x-3">
+                <svg class="flex-shrink-0 h-5 w-5 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm text-gray-300">Export not available</span>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="mt-8 bg-gray-50 border border-gray-200 rounded-lg p-6">
+    <h3 class="text-lg font-medium text-gray-900">Payment Information</h3>
+    <p class="mt-2 text-sm text-gray-600">
+      All payments are processed securely through Paystack. You will be redirected to complete your payment after selecting a plan.
+      Subscriptions renew automatically each month. You can cancel anytime.
+    </p>
+  </div>
+</div>

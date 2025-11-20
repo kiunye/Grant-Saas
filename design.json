@@ -1,0 +1,492 @@
+{
+  "designSystem": {
+    "name": "Grant SaaS Modern Design System",
+    "version": "1.0",
+    "description": "Clean, minimal, and modern design system inspired by contemporary SaaS applications with soft gradients, ample white space, and sophisticated UI elements",
+    
+    "designPrinciples": {
+      "clarity": "Information should be presented clearly with excellent readability and hierarchy",
+      "minimalism": "Remove unnecessary elements, embrace white space, let content breathe",
+      "modernElegance": "Sophisticated and professional, yet approachable and friendly",
+      "consistency": "Unified visual language across all components and pages",
+      "accessibility": "High contrast ratios, readable fonts, clear interactive states"
+    },
+
+    "colors": {
+      "primary": {
+        "50": "#EEF2FF",
+        "100": "#E0E7FF",
+        "200": "#C7D2FE",
+        "300": "#A5B4FC",
+        "400": "#818CF8",
+        "500": "#6366F1",
+        "600": "#4F46E5",
+        "700": "#4338CA",
+        "800": "#3730A3",
+        "900": "#312E81",
+        "description": "Indigo/blue - primary brand color for CTAs, links, active states"
+      },
+      
+      "navy": {
+        "50": "#F8FAFC",
+        "100": "#F1F5F9",
+        "200": "#E2E8F0",
+        "300": "#CBD5E1",
+        "400": "#94A3B8",
+        "500": "#64748B",
+        "600": "#475569",
+        "700": "#334155",
+        "800": "#1E293B",
+        "900": "#0F172A",
+        "description": "Dark navy - primary text, headlines, high-emphasis content"
+      },
+
+      "background": {
+        "primary": "#FFFFFF",
+        "secondary": "#F9FAFB",
+        "tertiary": "#F3F4F6",
+        "gradient": {
+          "from": "#E0F2FE",
+          "via": "#F0F9FF",
+          "to": "#FFFFFF",
+          "description": "Soft blue-to-white gradient for hero sections"
+        },
+        "description": "Clean white and light gray backgrounds"
+      },
+
+      "accent": {
+        "blue": "#3B82F6",
+        "cyan": "#06B6D4",
+        "green": "#10B981",
+        "orange": "#F59E0B",
+        "pink": "#EC4899",
+        "description": "Accent colors for icons, badges, highlights"
+      },
+
+      "text": {
+        "primary": "#0F172A",
+        "secondary": "#475569",
+        "tertiary": "#94A3B8",
+        "inverse": "#FFFFFF",
+        "description": "Text color hierarchy from darkest to lightest"
+      },
+
+      "border": {
+        "light": "#E5E7EB",
+        "medium": "#D1D5DB",
+        "dark": "#9CA3AF",
+        "description": "Subtle borders for cards and separators"
+      },
+
+      "semantic": {
+        "success": "#10B981",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6",
+        "description": "Status and feedback colors"
+      }
+    },
+
+    "typography": {
+      "fontFamily": {
+        "primary": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "mono": "'Fira Code', 'Courier New', monospace",
+        "description": "Modern geometric sans-serif for clean, readable text"
+      },
+
+      "fontSize": {
+        "xs": "0.75rem",
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "3xl": "1.875rem",
+        "4xl": "2.25rem",
+        "5xl": "3rem",
+        "6xl": "3.75rem",
+        "7xl": "4.5rem",
+        "description": "Proportional scale for text sizing"
+      },
+
+      "fontWeight": {
+        "normal": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700,
+        "extrabold": 800,
+        "description": "Weight hierarchy: normal for body, medium for labels, semibold+ for headings"
+      },
+
+      "lineHeight": {
+        "tight": 1.25,
+        "normal": 1.5,
+        "relaxed": 1.75,
+        "loose": 2,
+        "description": "Tighter for headlines, normal/relaxed for body text"
+      },
+
+      "letterSpacing": {
+        "tight": "-0.025em",
+        "normal": "0em",
+        "wide": "0.025em",
+        "wider": "0.05em",
+        "widest": "0.1em",
+        "description": "Slight negative spacing for large headings, wider for labels/uppercase"
+      }
+    },
+
+    "spacing": {
+      "scale": {
+        "0": "0",
+        "1": "0.25rem",
+        "2": "0.5rem",
+        "3": "0.75rem",
+        "4": "1rem",
+        "5": "1.25rem",
+        "6": "1.5rem",
+        "8": "2rem",
+        "10": "2.5rem",
+        "12": "3rem",
+        "16": "4rem",
+        "20": "5rem",
+        "24": "6rem",
+        "32": "8rem",
+        "description": "8px base unit (1rem = 16px)"
+      },
+      
+      "principles": {
+        "consistency": "Use multiples of 4px (0.25rem) for all spacing",
+        "breathing": "Generous white space between sections (12-16 units)",
+        "grouping": "Related elements closer (2-4 units), sections farther (8-12 units)",
+        "rhythm": "Consistent vertical rhythm throughout the page"
+      }
+    },
+
+    "borderRadius": {
+      "none": "0",
+      "sm": "0.25rem",
+      "base": "0.5rem",
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "2rem",
+      "full": "9999px",
+      "usage": {
+        "buttons": "0.5rem (base) for primary buttons, full for pills",
+        "cards": "1rem (lg) for main cards, 1.5rem (2xl) for hero cards",
+        "inputs": "0.5rem (base) for form inputs",
+        "badges": "full for pill-shaped badges",
+        "modals": "1.25rem (xl) for modal dialogs"
+      }
+    },
+
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "base": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+      "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+      "soft": "0 10px 40px rgba(0, 0, 0, 0.08)",
+      "glow": "0 0 20px rgba(99, 102, 241, 0.15)",
+      "usage": {
+        "cards": "lg shadow for floating cards",
+        "buttons": "sm shadow, md on hover",
+        "modals": "2xl shadow for dialogs",
+        "navigation": "base shadow for fixed nav",
+        "hero": "soft shadow for hero elements"
+      }
+    },
+
+    "components": {
+      "buttons": {
+        "primary": {
+          "background": "navy-900 or primary-600",
+          "text": "white",
+          "padding": "0.75rem 1.5rem (py-3 px-6)",
+          "borderRadius": "base (0.5rem)",
+          "fontSize": "sm to base",
+          "fontWeight": "semibold (600)",
+          "shadow": "sm, md on hover",
+          "transition": "all 150ms ease",
+          "hover": "slight scale (1.02), darker background",
+          "active": "scale down (0.98)"
+        },
+        "secondary": {
+          "background": "white",
+          "text": "navy-700",
+          "border": "1px solid border-light",
+          "padding": "0.75rem 1.5rem",
+          "borderRadius": "base",
+          "hover": "background secondary-50"
+        },
+        "pill": {
+          "borderRadius": "full",
+          "padding": "0.5rem 1.25rem",
+          "fontSize": "sm",
+          "description": "Rounded pill shape for tags/labels"
+        }
+      },
+
+      "cards": {
+        "default": {
+          "background": "white",
+          "borderRadius": "lg to xl (1rem to 1.25rem)",
+          "padding": "1.5rem to 2rem (p-6 to p-8)",
+          "shadow": "lg or soft",
+          "border": "none or 1px solid border-light",
+          "transition": "transform, shadow on hover"
+        },
+        "feature": {
+          "background": "white or gradient",
+          "borderRadius": "xl (1.25rem)",
+          "padding": "2rem (p-8)",
+          "shadow": "soft",
+          "hover": "lift with transform translateY(-4px), shadow xl"
+        },
+        "stat": {
+          "background": "navy-900 or primary-600",
+          "borderRadius": "2xl (1.5rem)",
+          "padding": "2.5rem (p-10)",
+          "color": "white",
+          "fontSize": "Display size for numbers",
+          "description": "Dark cards for metrics/stats with high contrast"
+        }
+      },
+
+      "inputs": {
+        "default": {
+          "background": "white",
+          "border": "1px solid border-light",
+          "borderRadius": "base (0.5rem)",
+          "padding": "0.75rem 1rem (py-3 px-4)",
+          "fontSize": "base (1rem)",
+          "placeholder": "text-tertiary",
+          "focus": "ring-2 ring-primary-500, border-primary-500",
+          "transition": "border, ring 150ms"
+        },
+        "search": {
+          "icon": "left-aligned icon",
+          "borderRadius": "full or lg",
+          "placeholder": "light gray"
+        }
+      },
+
+      "navigation": {
+        "header": {
+          "background": "white or transparent with blur",
+          "height": "4rem to 5rem (h-16 to h-20)",
+          "padding": "1rem 1.5rem (p-4 px-6)",
+          "shadow": "base when scrolled",
+          "position": "fixed or sticky",
+          "zIndex": 50
+        },
+        "links": {
+          "fontSize": "sm to base",
+          "fontWeight": "medium (500)",
+          "color": "navy-700",
+          "hover": "primary-600",
+          "spacing": "1rem to 1.5rem between links",
+          "transition": "color 150ms"
+        },
+        "logo": {
+          "display": "icon + text",
+          "fontSize": "xl (1.25rem)",
+          "fontWeight": "bold (700)",
+          "color": "navy-900"
+        }
+      },
+
+      "badges": {
+        "default": {
+          "borderRadius": "full",
+          "padding": "0.25rem 0.75rem (px-3 py-1)",
+          "fontSize": "xs to sm",
+          "fontWeight": "semibold (600)",
+          "display": "inline-flex",
+          "alignItems": "center"
+        },
+        "status": {
+          "success": "green-100 bg, green-800 text",
+          "warning": "orange-100 bg, orange-800 text",
+          "info": "blue-100 bg, blue-800 text",
+          "neutral": "gray-100 bg, gray-800 text"
+        }
+      },
+
+      "icons": {
+        "size": {
+          "sm": "1rem (16px)",
+          "base": "1.25rem (20px)",
+          "lg": "1.5rem (24px)",
+          "xl": "2rem (32px)"
+        },
+        "style": "outline or solid, consistent throughout",
+        "color": "inherit from parent or accent colors",
+        "usage": "feature icons in accent colors, UI icons in text colors"
+      },
+
+      "gradients": {
+        "hero": {
+          "type": "linear-gradient",
+          "direction": "to bottom right or to right",
+          "colors": "from-blue-50 via-cyan-50 to-white",
+          "opacity": "subtle, around 0.6 to 0.8",
+          "description": "Soft pastel gradients for backgrounds"
+        },
+        "card": {
+          "type": "linear-gradient",
+          "colors": "from-blue-500 to-blue-600 or from-primary-500 to-primary-600",
+          "description": "Vibrant gradients for feature cards"
+        }
+      },
+
+      "dividers": {
+        "default": {
+          "border": "1px solid border-light",
+          "color": "gray-200",
+          "margin": "2rem to 3rem (my-8 to my-12)"
+        }
+      }
+    },
+
+    "layout": {
+      "container": {
+        "maxWidth": "1280px (max-w-7xl)",
+        "padding": "1rem to 1.5rem (px-4 to px-6)",
+        "margin": "0 auto",
+        "description": "Centered container with responsive padding"
+      },
+
+      "grid": {
+        "columns": "1, 2, 3, 4 based on screen size",
+        "gap": "1.5rem to 2rem (gap-6 to gap-8)",
+        "responsive": "1 col mobile, 2 tablet, 3-4 desktop",
+        "description": "Flexible grid with consistent gaps"
+      },
+
+      "sections": {
+        "padding": "3rem to 6rem vertical (py-12 to py-24)",
+        "spacing": "4rem to 6rem between sections (mb-16 to mb-24)",
+        "background": "alternate between white and light gray"
+      },
+
+      "hero": {
+        "height": "auto or 80vh minimum",
+        "padding": "4rem to 8rem vertical (py-16 to py-32)",
+        "alignment": "center or left-aligned",
+        "content": "60-70% width, centered or left"
+      }
+    },
+
+    "animation": {
+      "transitions": {
+        "fast": "150ms",
+        "base": "200ms",
+        "slow": "300ms",
+        "description": "Timing for hover, focus states"
+      },
+
+      "easing": {
+        "default": "ease-in-out",
+        "smooth": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+      },
+
+      "effects": {
+        "hover": "translateY(-2px to -4px), scale(1.02)",
+        "click": "scale(0.98)",
+        "fadeIn": "opacity 0 to 1, 300ms",
+        "slideIn": "translateY(20px) to 0, 400ms"
+      },
+
+      "principles": {
+        "subtle": "Animations should be subtle and enhance UX",
+        "purposeful": "Every animation should have a purpose",
+        "performance": "Use transform and opacity for best performance",
+        "accessible": "Respect prefers-reduced-motion"
+      }
+    },
+
+    "responsiveDesign": {
+      "breakpoints": {
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px"
+      },
+
+      "approach": "Mobile-first design, progressive enhancement",
+
+      "patterns": {
+        "navigation": "Hamburger menu on mobile, full nav on desktop",
+        "cards": "Stacked on mobile, grid on tablet/desktop",
+        "typography": "Smaller sizes on mobile, larger on desktop",
+        "spacing": "Tighter on mobile, more generous on desktop"
+      }
+    },
+
+    "accessibilityGuidelines": {
+      "contrast": "Minimum 4.5:1 for normal text, 3:1 for large text",
+      "focusStates": "Visible focus rings on all interactive elements",
+      "touchTargets": "Minimum 44x44px for buttons and links",
+      "semanticHTML": "Use proper heading hierarchy, semantic elements",
+      "altText": "Descriptive alt text for all images",
+      "keyboardNav": "All functionality accessible via keyboard"
+    },
+
+    "designPatterns": {
+      "whitespace": "Liberal use of white space, elements should breathe",
+      "hierarchy": "Clear visual hierarchy through size, weight, color",
+      "consistency": "Reuse components, maintain consistent spacing",
+      "glassmorphism": "Optional: frosted glass effect for overlays (backdrop-blur)",
+      "neomorphism": "Avoid - prefer flat/subtle shadows",
+      "illustrations": "Use simple, modern illustrations sparingly",
+      "photography": "High-quality, relevant images with consistent styling"
+    },
+
+    "contentGuidelines": {
+      "headlines": {
+        "size": "3xl to 6xl (1.875rem to 3.75rem)",
+        "weight": "bold to extrabold (700-800)",
+        "color": "navy-900",
+        "lineHeight": "tight (1.25)",
+        "maxWidth": "20-30 words for hero headlines"
+      },
+
+      "subheadlines": {
+        "size": "lg to xl (1.125rem to 1.25rem)",
+        "weight": "medium (500)",
+        "color": "navy-600 to navy-700",
+        "lineHeight": "normal to relaxed"
+      },
+
+      "body": {
+        "size": "base to lg (1rem to 1.125rem)",
+        "weight": "normal (400)",
+        "color": "navy-600",
+        "lineHeight": "relaxed (1.75)",
+        "maxWidth": "65ch for optimal readability"
+      },
+
+      "labels": {
+        "size": "sm (0.875rem)",
+        "weight": "medium to semibold (500-600)",
+        "color": "navy-700",
+        "letterSpacing": "wide",
+        "textTransform": "uppercase (optional)"
+      }
+    }
+  },
+
+  "implementationNotes": {
+    "tailwindConfig": "Map these values to tailwind.config.js for consistency",
+    "cssVariables": "Define color and spacing variables for easy theme switching",
+    "componentLibrary": "Build reusable React/Rails components based on these specs",
+    "documentation": "Keep this file updated as design evolves",
+    "designTokens": "Consider converting to design tokens format for cross-platform use"
+  }
+}

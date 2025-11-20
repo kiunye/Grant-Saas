@@ -1,0 +1,172 @@
+<div class="min-h-screen">
+  <!-- Hero Section -->
+  <div class="relative overflow-hidden bg-gradient-to-br from-blue-50 via-indigo-50 to-white">
+    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM0RjQ2RTUiIGZpbGwtb3BhY2l0eT0iMC4wMiI+PHBhdGggZD0iTTM2IDE0YzAtNi42MjcgNS4zNzMtMTIgMTItMTJzMTIgNS4zNzMgMTIgMTItNS4zNzMgMTItMTIgMTItMTItNS4zNzMtMTItMTJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+    
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+      <div class="text-center">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-900 mb-6">
+          <span class="block">AI-Powered Grant Writing</span>
+          <span class="block bg-gradient-to-r from-indigo-600 to-indigo-800 bg-clip-text text-transparent">Made Simple</span>
+        </h1>
+        <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-600 leading-relaxed">
+          Generate professional, compelling grant proposals in minutes with our AI-powered platform. 
+          Save time and increase your chances of funding success.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <%= link_to new_user_registration_path, class: "group inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-white bg-gradient-to-r from-indigo-600 to-indigo-700 shadow-lg hover:shadow-xl hover:from-indigo-700 hover:to-indigo-800 transition-all transform hover:-translate-y-1" do %>
+            Get Started Free
+            <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+            </svg>
+          <% end %>
+          <%= link_to new_user_session_path, class: "inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-gray-700 bg-white border-2 border-gray-200 hover:border-indigo-600 hover:text-indigo-600 transition-all shadow-sm hover:shadow-md" do %>
+            Sign In
+          <% end %>
+        </div>
+        <p class="mt-6 text-sm text-gray-500">
+          <svg class="inline w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          30-day free trial, no credit card required
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-semibold text-indigo-600 tracking-wider uppercase">Features</p>
+        <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+          Everything you need to win grants
+        </h2>
+        <p class="mt-5 max-w-2xl mx-auto text-xl text-gray-600">
+          Our platform combines cutting-edge AI with intuitive design
+        </p>
+      </div>
+
+      <div class="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Feature 1 -->
+        <div class="group relative bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:border-indigo-200 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">AI-Powered Generation</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Our advanced AI creates professional grant proposals tailored to your project in minutes.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="group relative bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:border-indigo-200 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Professional Exports</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Export your proposals to PDF or DOCX format, ready to submit to funders.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="group relative bg-white rounded-2xl border border-gray-200 p-8 hover:shadow-xl hover:border-indigo-200 transition-all hover:-translate-y-1">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center mb-6 shadow-lg group-hover:shadow-xl transition-shadow">
+            <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Secure & Reliable</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Your data is encrypted and secure. Generate proposals with confidence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing Section -->
+  <div class="bg-gray-50 py-24">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center">
+        <p class="text-sm font-semibold text-indigo-600 tracking-wider uppercase">Pricing</p>
+        <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+          Simple, Transparent Pricing
+        </h2>
+        <p class="mt-5 text-xl text-gray-600">
+          Choose the plan that's right for you
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <% @plans.each_with_index do |plan, index| %>
+          <div class="relative bg-white rounded-2xl shadow-lg <%= 'ring-2 ring-indigo-500 scale-105' if plan.name == 'Growth' %> hover:shadow-xl transition-all">
+            <% if plan.name == 'Growth' %>
+              <div class="absolute -top-5 left-0 right-0 mx-auto w-fit">
+                <span class="inline-flex px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase bg-gradient-to-r from-indigo-600 to-indigo-700 text-white shadow-lg">
+                  Popular
+                </span>
+              </div>
+            <% end %>
+            
+            <div class="p-8">
+              <h3 class="text-xl font-bold text-gray-900"><%= plan.name %></h3>
+              <div class="mt-6 flex items-baseline">
+                <span class="text-5xl font-extrabold text-gray-900">KES <%= plan.price.to_i %></span>
+                <span class="ml-2 text-gray-500">/month</span>
+              </div>
+              <p class="mt-6 text-gray-600">
+                <span class="font-semibold text-gray-900">
+                  <%= plan.unlimited_generations? ? 'Unlimited' : plan.generations_per_month %>
+                </span>
+                <%= 'generation'.pluralize(plan.generations_per_month) %>/month
+              </p>
+              <%= link_to "Get Started", new_user_registration_path, class: "mt-8 block w-full py-3 px-6 text-center rounded-xl font-semibold transition-all #{plan.name == 'Growth' ? 'bg-gradient-to-r from-indigo-600 to-indigo-700 text-white shadow-lg hover:shadow-xl hover:from-indigo-700 hover:to-indigo-800' : 'bg-gray-100 text-gray-900 hover:bg-gray-200'}" %>
+            </div>
+            
+            <div class="px-8 pb-8 border-t border-gray-100 pt-8">
+              <ul class="space-y-4">
+                <li class="flex items-start">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="ml-3 text-gray-600">AI-powered generation</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="flex-shrink-0 w-5 h-5 <%= plan.allows_export? ? 'text-green-500' : 'text-gray-300' %> mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="<%= plan.allows_export? ? 'M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' : 'M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z' %>" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="ml-3 <%= plan.allows_export? ? 'text-gray-600' : 'text-gray-400' %>">PDF & DOCX export</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                  </svg>
+                  <span class="ml-3 text-gray-600">Document storage</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA Section -->
+  <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
+        Ready to transform your grant writing?
+      </h2>
+      <p class="mt-4 text-lg text-indigo-100">
+        Start your free trial today. No credit card required.
+      </p>
+      <%= link_to "Get Started Free", new_user_registration_path, class: "mt-8 inline-flex items-center px-8 py-4 text-base font-semibold rounded-xl text-indigo-600 bg-white shadow-lg hover:bg-gray-50 transition-all transform hover:-translate-y-1 hover:shadow-xl" %>
+    </div>
+  </div>
+</div>

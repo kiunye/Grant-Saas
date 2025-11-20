@@ -1,0 +1,81 @@
+<div class="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+  <div class="mb-12">
+    <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">Subscription</h1>
+    <p class="mt-2 text-lg text-gray-600">Manage your subscription plan and usage</p>
+  </div>
+
+  <!-- Current Plan -->
+  <div class="bg-gradient-to-br from-indigo-50 to-white rounded-2xl border border-indigo-200 p-8 mb-12 shadow-lg">
+    <div class="flex items-start justify-between mb-6">
+      <div>
+        <p class="text-sm font-semibold text-indigo-600 uppercase tracking-wider mb-2">Current Plan</p>
+        <h2 class="text-3xl font-bold text-gray-900"><%= @plan&.name || 'No Active Plan' %></h2>
+      </div>
+      <% if @subscription %>
+        <span class="inline-flex px-4 py-2 rounded-full text-sm font-semibold <%= @subscription.active? ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800' %>">
+          <%= @subscription.status.titleize %>
+        </span>
+      <% end %>
+    </div>
+
+    <% if @subscription %>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 mt-8">
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-medium text-gray-600 mb-2">Monthly Generations</p>
+          <p class="text-2xl font-bold text-gray-900">
+            <%= @plan.unlimited_generations? ? 'Unlimited' : @plan.generations_per_month %>
+          </p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-medium text-gray-600 mb-2">Price</p>
+          <p class="text-2xl font-bold text-gray-900">KES <%= @plan.price.to_i %> / month</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <p class="text-sm font-medium text-gray-600 mb-2">Export Access</p>
+          <p class="text-2xl font-bold text-gray-900"><%= @plan.allows_export? ? 'Enabled' : 'Disabled' %></p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-4">
+        <% if @subscription.active? && !@plan.free_trial? %>
+          <%= button_to cancel_subscription_path(@subscription), method: :post, data: { confirm: "Are you sure you want to cancel your subscription?" }, class: "inline-flex items-center px-6 py-3 bg-white border-2 border-red-300 text-red-700 font-semibold rounded-xl hover:bg-red-50 transition-all" do %>
+            Cancel Subscription
+          <% end %>
+        <% end %>
+        <%= link_to "View Available Plans", new_subscription_path, class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:from-indigo-700 hover:to-indigo-800 transition-all" %>
+      </div>
+    <% else %>
+      <p class="text-gray-600 mb-6">You don't have an active subscription. Choose a plan to get started.</p>
+      <%= link_to "View Available Plans", new_subscription_path, class: "inline-flex items-center px-6 py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl hover:from-indigo-700 hover:to-indigo-800 transition-all" %>
+    <% end %>
+  </div>
+
+  <!-- Usage This Month -->
+  <div class="bg-white rounded-2xl border border-gray-200 p-8">
+    <h3 class="text-xl font-bold text-gray-900 mb-6">Usage This Month</h3>
+    <div class="space-y-4">
+      <div class="flex items-center justify-between">
+        <span class="text-base font-medium text-gray-700">Generations Used</span>
+        <span class="text-lg font-bold text-gray-900">
+          <%= current_user.generations_this_month %> / 
+          <%= @plan&.unlimited_generations? ? '∞' : @plan&.generations_per_month || 0 %>
+        </span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+        <% if @plan && !@plan.unlimited_generations? %>
+          <% percentage = [(current_user.generations_this_month.to_f / @plan.generations_per_month * 100), 100].min %>
+          <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 h-3 rounded-full transition-all duration-500" style="width: <%= percentage %>%"></div>
+        <% else %>
+          <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 h-3 rounded-full w-0"></div>
+        <% end %>
+      </div>
+      <p class="text-sm text-gray-600">
+        <% if @plan && @plan.unlimited_generations? %>
+          You have unlimited generations on your current plan.
+        <% else %>
+          You have <%= current_user.remaining_generations %> generations remaining this month.
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>
