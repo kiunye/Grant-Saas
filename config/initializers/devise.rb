@@ -16,9 +16,9 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '44a41a383f1d247b9888b982d22bc49042ed1520762c7eb0699fa470e881d3f6c3099f19e439215c98998ad7f5376d65cf8b150b764ff29b756f1dc5aeb84872'
   
-  # Explicitly set secret_key to prevent Devise from trying to access Rails.application.credentials
-  # This is necessary when deploying without a valid RAILS_MASTER_KEY
-  config.secret_key = ENV.fetch('SECRET_KEY_BASE', nil)
+  # Devise will automatically use Rails.application.secret_key_base by default
+  # which will use SECRET_KEY_BASE from environment variables if set
+  # No need to explicitly set config.secret_key
   
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
