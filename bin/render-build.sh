@@ -11,8 +11,18 @@ fi
 # This forces Rails to rely on environment variables for configuration
 unset RAILS_MASTER_KEY
 
+# Temporarily rename credentials file to prevent Rails from attempting to decrypt it
+if [ -f "config/credentials.yml.enc" ]; then
+  mv config/credentials.yml.enc config/credentials.yml.enc.bak
+fi
+
 bundle install
 bundle exec rails assets:precompile
 bundle exec rails assets:clean
 bundle exec rails db:migrate
 bundle exec rails db:seed
+
+# Restore credentials file
+if [ -f "config/credentials.yml.enc.bak" ]; then
+  mv config/credentials.yml.enc.bak config/credentials.yml.enc
+fi
