@@ -12,7 +12,9 @@ fi
 unset RAILS_MASTER_KEY
 
 # Temporarily rename credentials file to prevent Rails from attempting to decrypt it
-if [ -f "config/credentials.yml.enc" ]; then
+if [ -f "src/config/credentials.yml.enc" ]; then
+  mv src/config/credentials.yml.enc src/config/credentials.yml.enc.bak
+elif [ -f "config/credentials.yml.enc" ]; then
   mv config/credentials.yml.enc config/credentials.yml.enc.bak
 fi
 
@@ -23,6 +25,8 @@ bundle exec rails db:migrate
 bundle exec rails db:seed
 
 # Restore credentials file
-if [ -f "config/credentials.yml.enc.bak" ]; then
+if [ -f "src/config/credentials.yml.enc.bak" ]; then
+  mv src/config/credentials.yml.enc.bak src/config/credentials.yml.enc
+elif [ -f "config/credentials.yml.enc.bak" ]; then
   mv config/credentials.yml.enc.bak config/credentials.yml.enc
 fi
