@@ -21,44 +21,21 @@ test:
   database: storage/test.sqlite3
 
 # Production database runs on PostgreSQL
-# Configure via DATABASE_URL environment variable or individual settings below
+# Configure via DATABASE_URL environment variable (provided by Render)
+# Rails will automatically parse DATABASE_URL if url is set
 production:
   primary:
-    adapter: postgresql
-    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("DATABASE_NAME") { "grant_sass_production" } %>
-    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
-    password: <%= ENV['DATABASE_PASSWORD'] %>
-    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
-    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
   cache:
-    adapter: postgresql
-    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("CACHE_DATABASE_NAME") { "grant_sass_cache" } %>
-    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
-    password: <%= ENV['DATABASE_PASSWORD'] %>
-    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
-    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     migrations_paths: db/cache_migrate
   queue:
-    adapter: postgresql
-    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("QUEUE_DATABASE_NAME") { "grant_sass_queue" } %>
-    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
-    password: <%= ENV['DATABASE_PASSWORD'] %>
-    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
-    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     migrations_paths: db/queue_migrate
   cable:
-    adapter: postgresql
-    encoding: unicode
+    url: <%= ENV['DATABASE_URL'] %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-    database: <%= ENV.fetch("CABLE_DATABASE_NAME") { "grant_sass_cable" } %>
-    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
-    password: <%= ENV['DATABASE_PASSWORD'] %>
-    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
-    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
     migrations_paths: db/cable_migrate
