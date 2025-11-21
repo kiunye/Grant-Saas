@@ -36,7 +36,7 @@
 /config/credentials.yml.enc
 
 # Ignore application configuration
-/config/database.yml
+#/config/database.yml
 
 # Ignore local SQLite databases
 /db/*.sqlite3

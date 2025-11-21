@@ -1,0 +1,64 @@
+# SQLite. Versions 3.8.0 and up are supported.
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem "sqlite3"
+#
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: storage/development.sqlite3
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: storage/test.sqlite3
+
+# Production database runs on PostgreSQL
+# Configure via DATABASE_URL environment variable or individual settings below
+production:
+  primary:
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    database: <%= ENV.fetch("DATABASE_NAME") { "grant_sass_production" } %>
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+  cache:
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    database: <%= ENV.fetch("CACHE_DATABASE_NAME") { "grant_sass_cache" } %>
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+    migrations_paths: db/cache_migrate
+  queue:
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    database: <%= ENV.fetch("QUEUE_DATABASE_NAME") { "grant_sass_queue" } %>
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+    migrations_paths: db/queue_migrate
+  cable:
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    database: <%= ENV.fetch("CABLE_DATABASE_NAME") { "grant_sass_cable" } %>
+    username: <%= ENV.fetch("DATABASE_USERNAME") { "postgres" } %>
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    host: <%= ENV.fetch("DATABASE_HOST") { "localhost" } %>
+    port: <%= ENV.fetch("DATABASE_PORT") { 5432 } %>
+    migrations_paths: db/cable_migrate
