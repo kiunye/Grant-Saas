@@ -22,20 +22,43 @@ test:
 
 # Production database runs on PostgreSQL
 # Configure via DATABASE_URL environment variable (provided by Render)
-# Rails will automatically parse DATABASE_URL if url is set
 production:
   primary:
+    <% if ENV['DATABASE_URL'] && !ENV['DATABASE_URL'].empty? %>
     url: <%= ENV['DATABASE_URL'] %>
+    <% else %>
+    adapter: postgresql
+    encoding: unicode
+    database: dummy
+    <% end %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   cache:
+    <% if ENV['DATABASE_URL'] && !ENV['DATABASE_URL'].empty? %>
     url: <%= ENV['DATABASE_URL'] %>
+    <% else %>
+    adapter: postgresql
+    encoding: unicode
+    database: dummy
+    <% end %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     migrations_paths: db/cache_migrate
   queue:
+    <% if ENV['DATABASE_URL'] && !ENV['DATABASE_URL'].empty? %>
     url: <%= ENV['DATABASE_URL'] %>
+    <% else %>
+    adapter: postgresql
+    encoding: unicode
+    database: dummy
+    <% end %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     migrations_paths: db/queue_migrate
   cable:
+    <% if ENV['DATABASE_URL'] && !ENV['DATABASE_URL'].empty? %>
     url: <%= ENV['DATABASE_URL'] %>
+    <% else %>
+    adapter: postgresql
+    encoding: unicode
+    database: dummy
+    <% end %>
     pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
     migrations_paths: db/cable_migrate
