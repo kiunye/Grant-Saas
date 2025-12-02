@@ -22,7 +22,7 @@ gem "jbuilder"
 # Authentication and Authorization
 gem "devise", "~> 4.9"
 gem "omniauth-google-oauth2", "~> 1.2"
-gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem "omniauth-rails_csrf_protection", "~> 2.0"
 
 # Payment Processing
 gem "paystack", "~> 0.1.10"
