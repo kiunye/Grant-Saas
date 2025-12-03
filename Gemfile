@@ -37,7 +37,7 @@ gem "wkhtmltopdf-binary", "~> 0.12.6"
 
 # Utilities
 gem "pagy", "~> 9.0"
-gem "dotenv-rails", "~> 3.0"
+gem "dotenv-rails", "~> 3.2"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
