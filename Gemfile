@@ -36,7 +36,7 @@ gem "wicked_pdf", "~> 2.8"
 gem "wkhtmltopdf-binary", "~> 0.12.6"
 
 # Utilities
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 43.2"
 gem "dotenv-rails", "~> 3.0"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
